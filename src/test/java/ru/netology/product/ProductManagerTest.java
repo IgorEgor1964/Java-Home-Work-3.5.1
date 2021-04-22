@@ -93,4 +93,26 @@ class ProductManagerTest {
         Product[] actual = manager.searchBy(textToFind);
         assertArrayEquals(expected, actual);
     }
+
+    @Test
+    public void shouldSearchByWhenMissingProduct() {
+        Product[] expected = new Product[]{};
+        Product[] actual = manager.searchBy("нет такого продукта");
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSearchByOneProduct() {
+        Product[] expected = new Product[]{};
+        Product[] actual = manager.searchBy("book1");
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldSearchByPhoneAndBook() {
+        Product[] expected = new Product[]{};
+        Product[] actual = manager.searchBy("book1, phone2");
+        assertArrayEquals(expected, actual);
+
+    }
 }
